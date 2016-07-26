@@ -15,6 +15,8 @@
 */
 Route::get('/', function () {
     return view('welcome');
+//    return view('prueba.index');
+//    return view('prueba/index');
 });
 
 /*  ejemplo de propiedades de las rutas

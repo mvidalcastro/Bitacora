@@ -11,15 +11,16 @@ class TestController extends Controller
 {
  public function view($id) {
 
-    $article = Article::find($id){
-/*
+    $article = Article::find($id);
+
     $article->category;
     $article->user;
-    $article->tags//;
-//   dd($id);
-*/
-  //     dd($article);
-dd($id);
+    $article->tags;
+
+    return view('prueba.index', ['aux_article' =>$article]);
+
+    //   dd($article);
+//dd($id);
  }
 
 }
