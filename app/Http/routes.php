@@ -37,6 +37,11 @@ Route::group (['prefix' => 'articles'], function() {
 });
 
 
+Route::group (['prefix' => 'admin'] , function() {
+  Route::resource('users','UsersController');
+
+});
+
 /*
 // Grupos de rutas
 Route::group (['prefix' => 'articles'], function() {
