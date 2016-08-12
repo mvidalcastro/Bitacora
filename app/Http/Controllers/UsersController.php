@@ -17,7 +17,8 @@ class UsersController extends Controller
     {
         //
         $users = User::orderBy('id', 'ASC')->paginate(5);
-        return  view('admin.users.index')->with('users', '$users');
+          //dd($users->all());
+        return  view('admin.users.index')->with('users', $users);
 
 
     }
