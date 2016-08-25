@@ -38,7 +38,20 @@ Route::group (['prefix' => 'articles'], function() {
 
 
 Route::group (['prefix' => 'admin'] , function() {
+
   Route::resource('users','UsersController');
+
+  Route::get('users/{id}/destroy',[
+    'uses'=>'UsersController@destroy',
+    'as'  => 'admin.users.destroy'
+  ]);
+/*
+  Route::get('users/{id}/edit',[
+    'uses'=>'UsersController@edit',
+    'as'  => 'admin.users.edit'
+  ]);
+*/
+
 
 });
 

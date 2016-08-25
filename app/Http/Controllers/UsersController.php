@@ -50,7 +50,10 @@ class UsersController extends Controller
         $user = new User($request->all());
         $user->password = bcrypt($request->password);
         $user->save();
-        dd('Usuario Creado');
+        flash('Usuario Registrado');
+        return redirect()->route('admin.users.index');
+        //dd('Usuario Creado');
+
     }
 
     /**
@@ -72,7 +75,10 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+      //
+      $user = User::find($id);
+      return view('admin.users.edit')->with('user', $user);
+
     }
 
     /**
@@ -85,6 +91,7 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         //
+        dd($request);
     }
 
     /**
@@ -95,6 +102,14 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $user = User::find($id);
+      $user->delete();
+       //Flash::error('El usuario '. $user->name . 'ha sido borrado de forma exitosa!');
+      flash('El usuario '. $user->name . ' ha sido borrado de forma exitosa!', 'danger');
+
+      //$request->session()->flash('danger', 'El usuario '. $user->name . 'ha sido borrado de forma exitosa!');
+
+      //\Session::flash('flash_message','Usuario Eliminado!.');
+      return redirect()->route('admin.users.index');
     }
 }
