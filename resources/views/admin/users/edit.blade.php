@@ -5,7 +5,7 @@
 
 @section('content')
 
-{!! Form::open(['route' => 'admin.users.update', 'method'=>'PUT']) !!}
+{!! Form::open(['route' => array('admin.users.update', $user->id ), 'method'=>'put', ]) !!}
 
   <div class= 'form-group'>
     {!! Form::label('name', 'Nombre')  !!}
@@ -14,12 +14,7 @@
 
   <div class= 'form-group'>
     {!! Form::label('email', 'Correo Electrónico')  !!}
-    {!! Form::email('email', null, ['class'=> 'form-control', 'placeholder'=>'example@mail.com' , 'required'])  !!}
-  </div>
-
-  <div class= 'form-group'>
-    {!! Form::label('password', 'Contraseña')  !!}
-    {!! Form::password('password', ['class'=> 'form-control', 'placeholder'=>'***********' , 'required'])  !!}
+    {!! Form::email('email', $user->email, ['class'=> 'form-control', 'placeholder'=>'example@mail.com' , 'required'])  !!}
   </div>
 
   <div class= 'form-group'>
@@ -28,7 +23,7 @@
   </div>
 
   <div class= 'form-group'>
-    {!! Form::submit('Registrar',['class'=>'btn btn-primary' ])  !!}
+    {!! Form::submit('Editar',['class'=>'btn btn-primary' ])  !!}
   </div>
 
 {!! Form::close() !!}

@@ -91,7 +91,13 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         //
-        dd($request);
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->type = $request->type;
+        $user->save();
+      flash('El usuario '. $user->name . ' ha sido editado de forma exitosa!', 'warning');
+      return redirect()->route('admin.users.index');
     }
 
     /**
