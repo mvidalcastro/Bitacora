@@ -21,7 +21,7 @@
           <ul class="dropdown-menu">
             <li><a href="#">Inicio</a></li>
             <li><a href="{{route('admin.users.index')}}">Usuarios</a></li>
-            <li><a href="#">Categoria</a></li>
+            <li><a href="{{route('admin.categories.index')}}">Categoria</a></li>
             <li><a href="#">Articulos</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>

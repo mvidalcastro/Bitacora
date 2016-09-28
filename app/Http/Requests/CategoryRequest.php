@@ -1,10 +1,10 @@
- <?php
+<?php
 
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class userRequest extends Request
+class CategoryRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,7 @@ class userRequest extends Request
     public function rules()
     {
         return [
-            'name'      => 'min:4|max:120|required',
-            'email'     => 'min:4|max:250|required|unique:users',
-            'password'  => 'min:4|max:120|required'
+              'name'      => 'max:120|required|unique:categories',
         ];
     }
 }
